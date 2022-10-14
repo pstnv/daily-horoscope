@@ -1,38 +1,289 @@
-.App {
-  text-align: center;
+html {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  margin: 0;
+  height: 100%;
   min-height: 100vh;
+  overflow: hidden;
+  background-color: #06171e;
+  background-image: url('../public/img/bg/bg_4.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  word-wrap: break-word;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*::selection {
+	background-color: rgb(68, 73, 65, 0.5);
+	color: white;
+}
+
+.container {
+  margin: 50px auto 0;
+  width: 100%;
+  max-width: 1000px;
+
+}
+.horoscope {
+  padding: 20px 30px;
+  min-height: 530px; 
+  display: flex;
+  justify-content: center;
+}
+
+.sign {
+  align-self: center;
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 30px;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.sign::after {
+  content: "";
+  border-radius: 30px;
+  border: 2px solid rgb(143, 136, 164, 0.8);
+  height: calc(100% + 30px);
+  width: calc(100% + 30px);
+  position: absolute;
+  top: -17px;
+  left: -17px;
+  z-index: -2;
+}
+
+.sign_image {
+  width: 100%;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+.choice {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+  overflow: hidden;
+}
+
+.choice_btn {
+  padding: 0 10px;
+  width: 50px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.choice_image {
+  width: 100%;
+}
+
+.choise_container {
+  margin: 0 30px;
+  padding: 20px 10px; 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.choice_header {
+  margin: 0;
+  text-align: center;
+  letter-spacing: 4px;
+  font-weight: bold;
+  font-style: 20px;
+  color: #ffffff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.choice_date {
+  margin-top: 10px;
+  font-weight: 300;
+  font-size: 14px;
+  color: #8f88a4;
+}
+
+.description {
+  margin-left: 40px;
+  padding: 50px 0 50px 50px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.description_header {
+  margin: 20px 0 0;
+  text-align: center;
+  letter-spacing: 3px;
+  font-size: 46px;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.description_text {
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  line-height: 1.7;
+  font-size: 22px;
+  color: #8f88a4;
+}
+
+@media all and (max-width:900px) {
+  
+  .container {
+    margin: 0 auto;
   }
-  to {
-    transform: rotate(360deg);
+
+  .horoscope {
+    padding: 10px 20px;
+    min-height: 480px; 
+  }
+  
+  .sign {
+    max-width: 250px;
+  }
+  
+  .choise_container {
+    margin: 0;
+  }
+  
+  .choice_header {
+    letter-spacing: 3px;
+  }
+
+  .description {
+    margin-left: 20px;
+    padding: 30px 0 20px 20px;
+  }
+  
+  .description_header {
+    letter-spacing: 2px;
+    font-size: 28px;
+  }
+  
+  .description_text {
+    padding: 8px;
+    line-height: 1.4;
+    font-size: 20px;
+  }
+}
+
+
+@media all and (max-width:600px) {
+
+  body {
+    overflow: initial;
+  }
+  
+  
+  .container {
+    margin: 30px auto 0;
+  }
+
+  .horoscope {
+    padding: 20px;
+    min-height: unset;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  .sign {
+    max-width: 270px;
+    border-radius: 20px;
+  }
+  
+  .sign::after {
+    border-radius: 20px;
+    height: calc(100% + 20px);
+    width: calc(100% + 20px);
+    top: -12px;
+    left: -12px; 
+  }
+
+    .choice_btn {
+    padding: 0 5px;
+    width: 40px;
+  }
+  
+  .choise_container {
+    margin: 0;
+    padding: 10px; 
+  }
+  
+  .choice_header {
+    letter-spacing: 3px;
+    font-style: 18px;
+  }
+  
+  .description {
+    margin: 10px 0;
+    padding: 20px 0;
+  }
+  
+  .description_header {
+    margin: 0;
+    font-size: 28px;
+  }
+  
+  .description_text {
+    padding: 5px;
+    line-height: 1.4;
+    font-size: 22px;
+  }
+}
+
+@media all and (max-width:400px) {
+
+  .container {
+    margin: 0 auto;
+  }
+
+  .horoscope {
+    padding: 20px;
+  }
+  
+  .sign {
+    max-width: 240px;
+  }
+
+    .choice_btn {
+    width: 35px;
+  }
+  
+  .choise_container {
+    padding: 10px 5px; 
+  }
+  
+  .choice_header {
+    font-style: 18px;
+  }
+  
+  .description {
+    margin: 10px 0;
+    padding: 10px 0;    
+  }
+  
+  .description_header {
+    margin: 0;
+    font-size: 26px;
+  }
+  
+  .description_text {
+    margin: 10px 0 0;
+    padding: 0;
+    line-height: 1.6;
+    font-size: 18px;
   }
 }
