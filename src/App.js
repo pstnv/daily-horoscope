@@ -38,7 +38,7 @@ function App () {
     const previousSign = () => {
         setIsLoading(true);
         setSign(sign => {
-          sign--;
+            sign--;
             return sign <= 0 ? library.length - 1 :  sign;
         })
     }
@@ -46,7 +46,8 @@ function App () {
     const nextSign = () => {
         setIsLoading(true);
         setSign(() => {
-            return sign >= library.length ? 0 : sign++;
+            sign++;
+            return sign >= library.length ? 0 : sign;
         })
     }
 
