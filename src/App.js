@@ -29,23 +29,21 @@ function App () {
         } 
         
         fetchData()
-    // to catch any error
         .catch(console.error);
 
     },[name]);
-    // },[sign]); либо так
 
     const previousSign = () => {
         setIsLoading(true);
         setSign(sign => {
             sign--;
-            return sign <= 0 ? library.length - 1 :  sign;
+            return sign < 0 ? library.length - 1 :  sign;
         })
     }
 
     const nextSign = () => {
         setIsLoading(true);
-        setSign(() => {
+        setSign(sign => {
             sign++;
             return sign >= library.length ? 0 : sign;
         })
