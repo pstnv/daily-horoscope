@@ -18,7 +18,6 @@ function App () {
             const response = await fetch(url, {method: 'POST'});
             const data = await response.json();
             const astro = data.description;
-            // console.log(astro);
             if (astro) {
                 setIsLoading(false);
                 setAstro(data.description);
